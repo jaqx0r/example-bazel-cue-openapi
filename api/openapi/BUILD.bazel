@@ -1,0 +1,11 @@
+load("@rules_cue//cue:cue.bzl", "cue_instance")
+
+# This schema for OpenAPI is used because
+# https://github.com/cue-lang/cue/issues/386 prevents us generating `paths`
+# definitions.
+cue_instance(
+    name = "openapi",
+    srcs = ["openapi.cue"],
+    ancestor = "//api/cue.mod",
+    visibility = ["//api:__subpackages__"],
+)
