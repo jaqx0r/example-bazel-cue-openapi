@@ -1,0 +1,10 @@
+load("@rules_cue//cue:cue.bzl", "cue_exported_files")
+
+# Call `cue export` to emit a yaml from our sources.
+cue_exported_files(
+    name = "api",
+    srcs = ["api.cue"],
+    module = "//api/cue.mod",
+    output_format = "yaml",
+    visibility = ["//visibility:public"],
+)

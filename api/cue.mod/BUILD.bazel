@@ -1,0 +1,3 @@
+load("@rules_cue//cue:cue.bzl", "cue_module")
+
+cue_module(visibility = ["//api:__subpackages__"])
