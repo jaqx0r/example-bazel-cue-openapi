@@ -9,6 +9,7 @@ cue_exported_files(
     visibility = ["//visibility:public"],
     deps = [
         "//api/openapi",
+        "//api/paths",
         "//api/schemas",
     ],
 )

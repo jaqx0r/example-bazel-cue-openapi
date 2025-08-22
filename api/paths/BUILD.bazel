@@ -1,0 +1,19 @@
+load("@rules_cue//cue:cue.bzl", "cue_instance")
+
+cue_instance(
+    name = "paths",
+    srcs = ["paths.cue"],
+    ancestor = "//api/cue.mod",
+    visibility = ["//api:__pkg__"],
+    deps = [
+        ":hi",
+        "//api/openapi",
+    ],
+)
+
+cue_instance(
+    name = "hi",
+    srcs = ["hi.cue"],
+    ancestor = "//api/cue.mod",
+    deps = ["//api/openapi"],
+)
