@@ -1,0 +1,20 @@
+load("@rules_cue//cue:cue.bzl", "cue_instance")
+
+cue_instance(
+    name = "schemas",
+    srcs = ["schemas.cue"],
+    ancestor = "//api/cue.mod",
+    visibility = ["//api:__subpackages__"],
+    deps = [
+        ":hi",
+        "//api/openapi",
+    ],
+)
+
+cue_instance(
+    name = "hi",
+    srcs = ["hi.cue"],
+    ancestor = "//api/cue.mod",
+    visibility = ["//api:__subpackages__"],
+    deps = ["//api/openapi"],
+)
