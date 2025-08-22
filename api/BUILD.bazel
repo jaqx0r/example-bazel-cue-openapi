@@ -7,4 +7,5 @@ cue_exported_files(
     module = "//api/cue.mod",
     output_format = "yaml",
     visibility = ["//visibility:public"],
+    deps = ["//api/openapi"],
 )
