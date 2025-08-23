@@ -5,7 +5,10 @@ go_library(
     srcs = ["main.go"],
     importpath = "github.com/jaqx0r/example-bazel-cue-openapi/server",
     visibility = ["//visibility:private"],
-    deps = ["@com_github_gin_gonic_gin//:gin"],
+    deps = [
+        "//server/apiservice",
+        "@com_github_gin_gonic_gin//:gin",
+    ],
 )
 
 go_binary(

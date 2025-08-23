@@ -1,0 +1,26 @@
+load("@rules_go//go:def.bzl", "go_library")
+load("@rules_oapi_codegen//:defs.bzl", "oapi_codegen")
+
+oapi_codegen(
+    name = "generate",
+    src = "//api",
+    out = "apiservice.go",
+    generate = "gin",
+    package = "apiservice",
+)
+
+go_library(
+    name = "apiservice",
+    srcs = [
+        "apiservice.go",
+        "hi.go",
+        "imports.go",
+        "service.go",
+    ],
+    importpath = "github.com/jaqx0r/example-bazel-cue-openapi/server/apiservice",
+    visibility = ["//server:__pkg__"],
+    deps = [
+        "@com_github_gin_gonic_gin//:gin",
+        "@com_github_oapi_codegen_runtime//strictmiddleware/gin",
+    ],
+)
