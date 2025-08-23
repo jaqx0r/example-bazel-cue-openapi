@@ -6,11 +6,11 @@ You will need http:/bazel.build isntalled, preferably with `bazelisk`.
 http://localhost:8080/hi
 
 [api](/api) contains the CUE specification for the API.  It is exported from
-CUE into an OpenAPI YAML specification by the build.
+CUE into an OpenAPI YAML specification by the build.  This is done with [`rules_cue`](https://github.com/seh/rules_cue).
 
 The YAML specification is then transformed by
 [`oapi-codegen`](http://github.com/oapi-codegen/oapi-codegen) into a service
-handler in Go.
+handler in Go.  This is done with [`rules_oapi_codegen`](https://github.com/jaqx0r/rules_oapi_codegen).
 
 The service is implemented in [server/apiservice](/server/apiservice), with one
 file per resource.  The generated code is not in the source tree, as usual with
