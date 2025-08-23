@@ -1,6 +1,6 @@
 # An example repo using Bazel and CUE to build an OpenAPI server in Go.
 
-You will need http:/bazel.build isntalled, preferably with `bazelisk`.
+You will need [`bazel`](https://bazel.build) installed, preferably with `bazelisk`.
 
 `bazel run //server` will build and launch the server on
 http://localhost:8080/hi
