@@ -1,0 +1,23 @@
+{
+	"compilerOptions": {
+		"target": "es2017",
+		"module": "esnext",
+		"jsx": "react-jsx",
+		"lib": ["dom", "dom.iterable", "esnext"],
+		"strict": true,
+		"declaration": true,
+		"sourceMap": true,
+		"esModuleInterop": true,
+		"skipLibCheck": true,
+		"allowJs": true,
+		"forceConsistentCasingInFileNames": true,
+		"resolveJsonModule": true,
+		"noEmit": true,
+		"isolatedModules": true,
+		"moduleResolution": "bundler",
+		"noImplicitAny": true,
+		"noUnusedLocals": true,
+		"noUnusedParameters": true
+	},
+	"exclude": ["bazel-example-bazel-cue-openapi"]
+}

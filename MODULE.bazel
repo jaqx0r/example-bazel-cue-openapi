@@ -43,3 +43,5 @@ use_repo(npm, "npm")
 # Allow us to do `bazel run @pnpm -- --dir=$PWD update --lockfile-only` and `install --lockfile-only ...`
 pnpm = use_extension("@aspect_rules_js//npm:extensions.bzl", "pnpm", dev_dependency = True)
 use_repo(pnpm, "pnpm")
+
+bazel_dep(name = "bazel_skylib", version = "1.8.1")
