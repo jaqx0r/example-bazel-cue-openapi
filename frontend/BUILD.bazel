@@ -3,6 +3,7 @@ load("@aspect_rules_js//js:defs.bzl", "js_run_devserver")
 load("@aspect_rules_swc//swc:defs.bzl", "swc")
 load("@aspect_rules_ts//ts:defs.bzl", "ts_project")
 load("@bazel_skylib//lib:partial.bzl", "partial")
+load("@npm//:@hey-api/openapi-ts/package_json.bzl", openapi_ts = "bin")
 load("@npm//:http-server/package_json.bzl", http_server = "bin")
 
 ts_project(
@@ -23,6 +24,7 @@ ts_project(
     ),
     tsconfig = "//:tsconfig",
     deps = [
+        ":apiclient",
         "//:node_modules/@types/react",
         "//:node_modules/@types/react-dom",
         "//:node_modules/react",
@@ -60,4 +62,38 @@ js_run_devserver(
         ":bundle",
     ],
     tool = ":http_server",
+)
+
+openapi_ts.openapi_ts(
+    name = "gen_apiclient",
+    srcs = ["//api"],
+    args = [
+        "--debug",
+        "--input",
+        # Need to prefix with local path to tell the generator this is a path, not an API repository object.
+        # https://heyapi.dev/openapi-ts/configuration/input
+        "./$(rootpath //api)",
+        "--output",
+        package_name() + "/apiclient",
+    ],
+    log_level = "debug",
+    out_dirs = ["apiclient"],
+)
+
+ts_project(
+    name = "apiclient",
+    srcs = [
+        "apiclient.ts",
+        ":gen_apiclient",
+    ],
+    allow_js = True,
+    declaration = True,
+    no_emit = True,
+    resolve_json_module = True,
+    source_map = True,
+    transpiler = partial.make(
+        swc,
+        swcrc = "//:.swcrc",
+    ),
+    tsconfig = "//:tsconfig",
 )
