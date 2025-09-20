@@ -19,3 +19,27 @@ git_override(
     commit = "35c2ecdd2d44c4d0bbadc0019b753ae71704e86a",
     remote = "https://github.com/jaqx0r/rules_oapi_codegen",
 )
+
+bazel_dep(name = "aspect_rules_ts", version = "3.7.0")
+bazel_dep(name = "aspect_rules_js", version = "2.5.0")
+bazel_dep(name = "rules_nodejs", version = "6.5.0")
+bazel_dep(name = "aspect_rules_esbuild", version = "0.22.1")
+bazel_dep(name = "aspect_rules_swc", version = "2.4.4")
+
+rules_ts_ext = use_extension("@aspect_rules_ts//ts:extensions.bzl", "ext", dev_dependency = True)
+rules_ts_ext.deps()
+use_repo(rules_ts_ext, "npm_typescript")
+
+npm = use_extension("@aspect_rules_js//npm:extensions.bzl", "npm", dev_dependency = True)
+npm.npm_translate_lock(
+    name = "npm",
+    data = ["//:package.json"],
+    npmrc = "//:.npmrc",
+    pnpm_lock = "//:pnpm-lock.yaml",
+    verify_node_modules_ignored = "//:.bazelignore",
+)
+use_repo(npm, "npm")
+
+# Allow us to do `bazel run @pnpm -- --dir=$PWD update --lockfile-only` and `install --lockfile-only ...`
+pnpm = use_extension("@aspect_rules_js//npm:extensions.bzl", "pnpm", dev_dependency = True)
+use_repo(pnpm, "pnpm")

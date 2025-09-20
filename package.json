@@ -1,0 +1,13 @@
+{
+	"name": "example-bazel-cue-openapi",
+	"version": "0.0.0",
+	"private": true,
+	"dependencies": {
+	},
+	"devDependencies": {
+	},
+	"engines": {
+		"node": ">=20.19.4"
+	},
+	"type": "module"
+}
