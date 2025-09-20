@@ -16,11 +16,14 @@ go_library(
         "hi.go",
         "imports.go",
         "service.go",
+        "thing.go",
     ],
     importpath = "github.com/jaqx0r/example-bazel-cue-openapi/server/apiservice",
     visibility = ["//server:__pkg__"],
     deps = [
         "@com_github_gin_gonic_gin//:gin",
+        "@com_github_oapi_codegen_runtime//:runtime",
         "@com_github_oapi_codegen_runtime//strictmiddleware/gin",
+        "@com_github_oapi_codegen_runtime//types",
     ],
 )

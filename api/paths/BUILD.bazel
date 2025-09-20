@@ -7,6 +7,7 @@ cue_instance(
     visibility = ["//api:__pkg__"],
     deps = [
         ":hi",
+        ":thing",
         "//api/openapi",
     ],
 )
@@ -14,6 +15,13 @@ cue_instance(
 cue_instance(
     name = "hi",
     srcs = ["hi.cue"],
+    ancestor = "//api/cue.mod",
+    deps = ["//api/openapi"],
+)
+
+cue_instance(
+    name = "thing",
+    srcs = ["thing.cue"],
     ancestor = "//api/cue.mod",
     deps = ["//api/openapi"],
 )

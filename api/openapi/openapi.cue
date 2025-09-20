@@ -168,12 +168,12 @@ package openapi
 #reference: $ref: string
 
 #schema: {
-	type: "object" | "array" | "null" | "number" | "string" | "boolean"
+	type: "object" | "array" | "null" | "number" | "string" | "boolean" | "integer"
 	title?: string
 	description?: string
 	items?: #schema | #reference
 	properties?: [string]: #schema
-	format?: "int32" | "int64" | "float" | "double" | "byte" | "binary"  | "date" | "date-time" | "password"
+	format?: "int32" | "int64" | "float" | "double" | "byte" | "binary"  | "date" | "date-time" | "password" | "uuid"
 	example?: _
 	nullable?: bool
 	required?: [...string]
