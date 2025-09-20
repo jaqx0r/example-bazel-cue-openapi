@@ -38,6 +38,9 @@ import "github.com/jaqx0r/example-bazel-cue-openapi/api/openapi"
                             items:
                                 $ref: "#/components/schemas/Thing"
                         }
+                        "next_page_token": {
+                            type: "string"
+                        }
                     }
                 }
             }
