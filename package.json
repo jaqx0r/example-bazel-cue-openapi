@@ -12,6 +12,7 @@
 		"@types/react-dom": "^19.1.9",
 		"esbuild": "^0.25.10",
 		"http-server": "^14.1.1",
+		"live-server": "^1.2.2",
 		"tsconfig-to-swcconfig": "^2.8.1",
 		"typescript": "^5.9.2"
 	},

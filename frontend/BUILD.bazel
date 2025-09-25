@@ -5,6 +5,8 @@ load("@aspect_rules_ts//ts:defs.bzl", "ts_project")
 load("@bazel_skylib//lib:partial.bzl", "partial")
 load("@npm//:@hey-api/openapi-ts/package_json.bzl", openapi_ts = "bin")
 load("@npm//:http-server/package_json.bzl", http_server = "bin")
+load("@npm//:live-server/package_json.bzl", live_server = "bin")
+load("@rules_itest//:itest.bzl", "itest_service")
 
 ts_project(
     name = "frontend",
@@ -96,4 +98,23 @@ ts_project(
         swcrc = "//:.swcrc",
     ),
     tsconfig = "//:tsconfig",
+)
+
+live_server.live_server_binary(
+    name = "live_server",
+)
+
+itest_service(
+    name = "sut",
+    args = [
+        package_name(),
+        "--verbose",
+        "--port=8000",
+    ],
+    data = [
+        "index.html",
+        ":bundle",
+    ],
+    exe = ":live_server",
+    deps = ["//server:sut"],
 )
