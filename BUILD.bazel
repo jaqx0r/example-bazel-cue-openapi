@@ -29,3 +29,11 @@ tsconfig_to_swcconfig.t2s(
 )
 
 npm_link_all_packages()
+
+config_setting(
+    name = "compilation_mode_opt",
+    values = {
+        "compilation_mode": "opt",
+    },
+    visibility = ["//:__subpackages__"],
+)

@@ -40,6 +40,10 @@ esbuild(
         "index.html",
         ":frontend",
     ],
+    define = select({
+        "//:compilation_mode_opt": {"process.env.NODE_ENV": '"production"'},
+        "//conditions:default": {},
+    }),
     entry_point = "frontend.tsx",
     output_dir = True,
     sourcemap = "linked",
