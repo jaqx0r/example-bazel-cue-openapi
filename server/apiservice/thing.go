@@ -7,13 +7,12 @@ import (
 )
 
 func (ApiService) ListThings(ctx context.Context, req ListThingsRequestObject) (ListThingsResponseObject, error) {
-	thingName := "thing"
 	var things = []Thing{
 		{
 			Uid:   uuid.New(),
-			Title: &thingName,
+			Title: "thing",
 		},
 	}
 
-	return ListThings200JSONResponse{Things: &things}, nil
+	return ListThings200JSONResponse{Things: things}, nil
 }

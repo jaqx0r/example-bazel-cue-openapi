@@ -6,6 +6,10 @@ oapi_codegen(
     src = "//api",
     out = "apiservice.go",
     generate = "gin",
+    output_options = {
+        "prefer-skip-optional-pointer": "true",
+        "prefer-skip-optional-pointer-with-omitzero": "true",
+    },
     package = "apiservice",
 )
 
