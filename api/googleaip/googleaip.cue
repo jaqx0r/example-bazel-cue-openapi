@@ -56,6 +56,7 @@ import (
 			// AIP-131 does not allow any other fields, so these must be required IDs and must be in the path.
 			in:       "path"
 			required: true
+			schema: type: "string"
 		},
 		], [
 			{
@@ -63,6 +64,7 @@ import (
 				description: "filter is an expression that conforms to [AIP-160](https://google.aip.dev/160)"
 				required:    false
 				in:          "query"
+				schema: type: "string"
 			},
 		],
 			[for f in [
@@ -71,12 +73,14 @@ import (
 					description: "The maximum number of resources to return.  The service may return fewer than this value.  If unspecified, at most \(#maxPageSize) will be returned.  The maximum value is \(#maxPageSize); values above \(#maxPageSize) will be coerced to \(#maxPageSize)."
 					required:    false
 					in:          "query"
+					schema: type: "integer"
 				},
 				{
 					name:        "page_token"
 					description: "A page token, received from a previous `\(operationId)` call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to `\(operationId)` must match the call that provided the page token."
 					required:    false
 					in:          "query"
+					schema: type: "string"
 				},
 			] if #maxPageSize != _|_ {
 				f
@@ -108,6 +112,9 @@ import (
 					}
 				}
 			}
+			"401": $ref: "#/components/responses/Unauthorized"
+			"404": $ref: "#/components/responses/NotFound"
+			"501": $ref: "#/components/responses/Unimplemented"
 		}
 	}
 }
@@ -138,6 +145,7 @@ import (
 			// AIP-131 does not allow any other fields, so these must be required IDs and must be in the path.
 			in:       "path"
 			required: true
+			schema: type: "string"
 		},
 		]
 
@@ -150,6 +158,9 @@ import (
 					}
 				}
 			}
+			"401": $ref: "#/components/responses/Unauthorized"
+			"404": $ref: "#/components/responses/NotFound"
+			"501": $ref: "#/components/responses/Unimplemented"
 		}
 	}
 }

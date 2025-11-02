@@ -16,3 +16,7 @@ func (ApiService) ListThings(ctx context.Context, req ListThingsRequestObject) (
 
 	return ListThings200JSONResponse{Things: things}, nil
 }
+
+func (ApiService) GetThing(ctx context.Context, req GetThingRequestObject) (GetThingResponseObject, error) {
+	return UnimplementedResponse{}, nil
+}

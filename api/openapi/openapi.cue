@@ -72,7 +72,7 @@ package openapi
 	operationId?:  string
 	parameters?: [...#parameter | #reference]
 	requestBody?: #request_body | #reference
-	responses: [string]:  #response
+	responses: [string]:  #response | #reference
 	callbacks?: [string]: #callback | #reference
 	deprecated?: bool
 	servers?: [...#server]

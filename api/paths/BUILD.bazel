@@ -23,5 +23,5 @@ cue_instance(
     name = "thing",
     srcs = ["thing.cue"],
     ancestor = "//api/cue.mod",
-    deps = ["//api/openapi"],
+    deps = ["//api/googleaip"],
 )
