@@ -1,0 +1,17 @@
+load("@rules_cue//cue:cue.bzl", "cue_consolidated_files", "cue_instance")
+load("//bzl:cue_test.bzl", "cue_test")
+
+cue_instance(
+    name = "googleaip",
+    srcs = ["googleaip.cue"],
+    ancestor = "//api/cue.mod",
+    visibility = ["//api:__subpackages__"],
+    deps = ["//api/openapi"],
+)
+
+cue_test(
+    name = "googleaip_test",
+    srcs = ["test_googleaip.cue"],
+    module = "//api/cue.mod",
+    deps = [":googleaip"],
+)
