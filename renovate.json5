@@ -6,4 +6,9 @@
 	  ":automergeAll",
 	  ":automergePr",
   ],
+  "postUpgradeTasks": {
+    "commands": ["bazel mod tidy"],
+     "fileFilters": ["MODULE.bazel.lock"],
+    "executionMode": "branch",
+  },
 }
