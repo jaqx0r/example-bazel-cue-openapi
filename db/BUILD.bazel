@@ -1,0 +1,47 @@
+load("@rules_img//img:image.bzl", "image_manifest")
+load("@rules_img//img:load.bzl", "image_load")
+load("@rules_itest//:itest.bzl", "itest_service", "itest_task")
+
+platform(
+    name = "host_docker_platform",
+    constraint_values = ["@platforms//os:linux"],  # but linux OS inside Docker
+    parents = ["@platforms//host"],  # use host CPU
+)
+
+image_manifest(
+    name = "pg_image",
+    base = "@postgresql",
+    platform = ":host_docker_platform",
+)
+
+image_load(
+    name = "load_pg_image",
+    image = ":pg_image",
+    tag = "pg_image:latest",
+)
+
+itest_task(
+    name = "load_pg_image_task",
+    testonly = True,
+    exe = ":load_pg_image",
+)
+
+itest_service(
+    name = "sut",
+    testonly = True,
+    args = [
+        "--name",
+        "pg_image:latest",
+        "--env=POSTGRES_USER,POSTGRES_PASSWORD,POSTGRES_DB",
+    ],
+    env = {
+        "POSTGRES_USER": "postgres",
+        "POSTGRES_PASSWORD": "postgres",
+        "POSTGRES_DB": "postgres",
+    },
+    exe = "//testing/itestcontainer:itestcontainer",
+    named_ports = [
+        "5432",
+    ],
+    deps = [":load_pg_image_task"],
+)

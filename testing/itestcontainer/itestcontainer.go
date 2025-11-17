@@ -24,6 +24,7 @@ import (
 	"log"
 	"os"
 	"os/signal"
+	"strings"
 	"sync"
 	"syscall"
 
@@ -66,7 +67,7 @@ func main() {
 	// Map the suffix of the named ports to exposed ports.
 	exposedPorts := []string{}
 	for portName, externalPort := range assignedPorts {
-		parts := strings.Split(portname, ":")
+		parts := strings.Split(portName, ":")
 		exposedPortName := parts[len(parts)-1]
 		exposedPorts = append(exposedPorts, externalPort+":"+exposedPortName)
 	}
@@ -125,7 +126,7 @@ func main() {
 	wg.Add(1)
 	go func() {
 		defer wg.Done()
-		name := c.GetContainerId()
+		name := c.GetContainerID()
 		n, err := c.Inspect(ctx)
 		if err != nil {
 			name = n.Name
