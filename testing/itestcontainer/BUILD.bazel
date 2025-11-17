@@ -1,0 +1,15 @@
+load("@rules_go//go:def.bzl", "go_binary", "go_library")
+
+go_library(
+    name = "itestcontainer_lib",
+    srcs = ["itestcontainer.go"],
+    importpath = "github.com/jaqx0r/example-bazel-cue-openapi/testing/itestcontainer",
+    visibility = ["//visibility:private"],
+    deps = ["@com_github_testcontainers_testcontainers_go//:go_default_library"],
+)
+
+go_binary(
+    name = "itestcontainer",
+    embed = [":itestcontainer_lib"],
+    visibility = ["//visibility:public"],
+)
