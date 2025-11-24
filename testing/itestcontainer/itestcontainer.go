@@ -24,6 +24,7 @@ import (
 	"log"
 	"os"
 	"os/signal"
+	"strconv"
 	"strings"
 	"sync"
 	"syscall"
@@ -65,11 +66,22 @@ func main() {
 	log.Println("Ports:", assignedPorts)
 
 	// Map the suffix of the named ports to exposed ports.
-	exposedPorts := []string{}
+	exposedPortsMap := make(map[string]string, len(assignedPorts))
 	for portName, externalPort := range assignedPorts {
 		parts := strings.Split(portName, ":")
+
 		exposedPortName := parts[len(parts)-1]
-		exposedPorts = append(exposedPorts, externalPort+":"+exposedPortName)
+		if _, err := strconv.Atoi(exposedPortName); err != nil {
+			log.Printf("port name %q can't be mapped; please use numeric port names in `named_ports`", exposedPortName)
+			continue
+		}
+		if _, ok := exposedPortsMap[externalPort]; !ok {
+			exposedPortsMap[externalPort] = exposedPortName
+		}
+	}
+	exposedPorts := make([]string, 0, len(exposedPortsMap))
+	for k, v :=  range exposedPortsMap {
+		exposedPorts = append(exposedPorts, fmt.Sprintf("%s:%s", k, v))
 	}
 	log.Println("Exposed Ports:", exposedPorts)
 
