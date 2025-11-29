@@ -18,13 +18,11 @@ import (
 	"context"
 	"crypto/sha256"
 	"encoding/hex"
-	"encoding/json"
 	"flag"
 	"fmt"
 	"log"
 	"os"
 	"os/signal"
-	"strconv"
 	"strings"
 	"sync"
 	"syscall"
@@ -36,6 +34,8 @@ var (
 	name   = flag.String("name", "", "`name`(`:tag`) name and optional tag of the container to launch")
 	volume = flag.String("volume", "", "`name`:`path` pairs of volumes to mount.  If `TEST_TARGET` is set in the environment, that value is hashed and appended to the volume name.  The string `bazel-itest-` is always prepended.")
 	env    = flag.String("env", "", "KEY[,KEY] list of environment variable names to pass through to the container")
+	ports  = flag.String("ports", "", "exposed port mappings to pass to container")
+	labels = flag.String("labels", "", "labels to set on container")
 )
 
 type logConsumer struct {
@@ -55,33 +55,12 @@ func main() {
 	ctx, stop := signal.NotifyContext(context.Background(), os.Interrupt, syscall.SIGTERM)
 	wg := sync.WaitGroup{}
 
-	var assignedPorts map[string]string
-	portsString := os.Getenv("ASSIGNED_PORTS")
-	if portsString != "" {
-		err := json.Unmarshal([]byte(portsString), &assignedPorts)
-		if err != nil {
-			log.Fatalf("json.Unmarshal(%v): %v", portsString, err)
-		}
-	}
-	log.Println("Ports:", assignedPorts)
-
-	// Map the suffix of the named ports to exposed ports.
-	exposedPortsMap := make(map[string]string, len(assignedPorts))
-	for portName, externalPort := range assignedPorts {
-		parts := strings.Split(portName, ":")
-
-		exposedPortName := parts[len(parts)-1]
-		if _, err := strconv.Atoi(exposedPortName); err != nil {
-			log.Printf("port name %q can't be mapped; please use numeric port names in `named_ports`", exposedPortName)
+	exposedPorts := make([]string, 0)
+	for portMap := range strings.SplitSeq(*ports, ",") {
+		if portMap == "" {
 			continue
 		}
-		if _, ok := exposedPortsMap[externalPort]; !ok {
-			exposedPortsMap[externalPort] = exposedPortName
-		}
-	}
-	exposedPorts := make([]string, 0, len(exposedPortsMap))
-	for k, v :=  range exposedPortsMap {
-		exposedPorts = append(exposedPorts, fmt.Sprintf("%s:%s", k, v))
+		exposedPorts = append(exposedPorts, portMap)
 	}
 	log.Println("Exposed Ports:", exposedPorts)
 
@@ -109,6 +88,9 @@ func main() {
 	}
 	mounts := make([]testcontainers.ContainerMount, 0)
 	for volumeMount := range strings.SplitSeq(*volume, ",") {
+		if volumeMount == "" {
+			continue
+		}
 		parts := strings.SplitN(volumeMount, ":", 2)
 		volumeName := ""
 		if suffix != "" {
@@ -124,6 +106,16 @@ func main() {
 	}
 	log.Println("Volume Mounts:", mounts)
 
+	labelMap := make(map[string]string, 0)
+	for label := range strings.SplitSeq(*labels, ",") {
+		if label == "" {
+			continue
+		}
+		pair := strings.SplitN(label, "=", 2)
+		labelMap[pair[0]] = pair[1]
+	}
+	log.Println("Labels:", labelMap)
+
 	logConsumer := logConsumer{}
 
 	c, err := testcontainers.Run(ctx, *name,
@@ -131,6 +123,7 @@ func main() {
 		testcontainers.WithLogConsumers(logConsumer),
 		testcontainers.WithEnv(environment),
 		testcontainers.WithMounts(mounts...),
+		testcontainers.WithLabels(labelMap),
 	)
 	if err != nil {
 		log.Fatalf("testcontainers.Run(): %v", err)
