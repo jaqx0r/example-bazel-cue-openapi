@@ -27,6 +27,7 @@ go_library(
     deps = [
         "@com_github_gin_gonic_gin//:gin",
         "@com_github_google_uuid//:uuid",
+        "@com_github_jaqx0r_pagination//:pagination",
         "@com_github_oapi_codegen_runtime//:runtime",
         "@com_github_oapi_codegen_runtime//strictmiddleware/gin",
         "@com_github_oapi_codegen_runtime//types",

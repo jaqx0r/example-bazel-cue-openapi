@@ -5,7 +5,7 @@ go_library(
     srcs = ["itestcontainer.go"],
     importpath = "github.com/jaqx0r/example-bazel-cue-openapi/testing/itestcontainer",
     visibility = ["//visibility:private"],
-    deps = ["@com_github_testcontainers_testcontainers_go//:go_default_library"],
+    deps = ["@com_github_testcontainers_testcontainers_go//:testcontainers-go"],
 )
 
 go_binary(
