@@ -126,7 +126,7 @@ func main() {
 		testcontainers.WithLabels(labelMap),
 	)
 	if err != nil {
-		log.Fatalf("testcontainers.Run(): %v", err)
+		log.Fatalf("testcontainers.Run(%v): %v", *name, err)
 	}
 	wg.Add(1)
 	go func() {
