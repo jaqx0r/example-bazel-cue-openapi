@@ -7,7 +7,7 @@ settings:
 dependencies:
   '@hey-api/openapi-ts':
     specifier: ^0.88.0
-    version: 0.88.1(typescript@5.9.3)
+    version: 0.88.2(typescript@5.9.3)
   react:
     specifier: ^19.1.1
     version: 19.2.1
@@ -297,8 +297,8 @@ packages:
       lodash: 4.17.21
     dev: false
 
-  /@hey-api/openapi-ts@0.88.1(typescript@5.9.3):
-    resolution: {integrity: sha512-x/nDTupOnV9VuSeNIiJpgIpc915GHduhyseJeMTnI0JMsXaObmpa0rgPr3ASVEYMLgpvqozIEG1RTOOnal6zLQ==}
+  /@hey-api/openapi-ts@0.88.2(typescript@5.9.3):
+    resolution: {integrity: sha512-JMae1RJ8S8D8lVCFQnsrWaKY0CxrR4TUmZIoU1SuvaeZ+pkMPYuQoj8fO37R5d8juUfFVzCGYV5/Ro0vbDqBbA==}
     engines: {node: '>=20.19.0'}
     hasBin: true
     peerDependencies:
@@ -706,8 +706,8 @@ packages:
     engines: {node: '>=0.10'}
     dev: true
 
-  /default-browser-id@5.0.0:
-    resolution: {integrity: sha512-A6p/pu/6fyBcA1TRz/GqWYPViplrftcW2gZC9q79ngNCKAeR/X3gcEdXQHl4KNXV+3wgIJ1CPkJQ3IHM6lcsyA==}
+  /default-browser-id@5.0.1:
+    resolution: {integrity: sha512-x1VCxdX4t+8wVfd1so/9w+vQ4vx7lKd2Qp5tDRutErwmR85OgmfX7RlLRMWafRMY7hbEiXIbudNrjOAPa/hL8Q==}
     engines: {node: '>=18'}
     dev: false
 
@@ -716,7 +716,7 @@ packages:
     engines: {node: '>=18'}
     dependencies:
       bundle-name: 4.1.0
-      default-browser-id: 5.0.0
+      default-browser-id: 5.0.1
     dev: false
 
   /define-lazy-prop@3.0.0:
@@ -1569,7 +1569,7 @@ packages:
       consola: 3.4.2
       pathe: 2.0.3
       pkg-types: 2.3.0
-      tinyexec: 1.0.1
+      tinyexec: 1.0.2
     dev: false
 
   /object-assign@4.1.1:
@@ -2056,8 +2056,9 @@ packages:
     resolution: {integrity: sha512-w89qg7PI8wAdvX60bMDP+bFoD5Dvhm9oLheFp5O4a2QF0cSBGsBX4qZmadPMvVqlLJBBci+WqGGOAPvcDeNSVg==}
     dev: true
 
-  /tinyexec@1.0.1:
-    resolution: {integrity: sha512-5uC6DDlmeqiOwCPmK9jMSdOuZTh8bU39Ys6yidB+UTt5hfZUPGAypSgFRiEp+jbi9qH40BLDvy85jIU88wKSqw==}
+  /tinyexec@1.0.2:
+    resolution: {integrity: sha512-W/KYk+NFhkmsYpuHq5JykngiOCnxeVL8v8dFnqxSD8qEEdRfXk1SDM6JzNqcERbcGYj9tMrDQBYV9cjgnunFIg==}
+    engines: {node: '>=18'}
     dev: false
 
   /to-object-path@0.3.0:
