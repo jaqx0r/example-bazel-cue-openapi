@@ -44,7 +44,7 @@ use_repo(npm, "npm")
 pnpm = use_extension("@aspect_rules_js//npm:extensions.bzl", "pnpm", dev_dependency = True)
 use_repo(pnpm, "pnpm")
 
-bazel_dep(name = "bazel_skylib", version = "1.8.2")
+bazel_dep(name = "bazel_skylib", version = "1.9.0")
 bazel_dep(name = "rules_itest", version = "0.0.41")
 bazel_dep(name = "platforms", version = "1.0.0")
 bazel_dep(name = "rules_img", version = "0.3.2")
