@@ -7,7 +7,7 @@ settings:
 dependencies:
   '@hey-api/openapi-ts':
     specifier: ^0.90.0
-    version: 0.90.0(typescript@5.9.3)
+    version: 0.90.1(typescript@5.9.3)
   react:
     specifier: ^19.1.1
     version: 19.2.3
@@ -278,8 +278,8 @@ packages:
     resolution: {integrity: sha512-J8TOSBq3SoZbDhM9+R/u77hP93gz/rajSA+K2kGyijPpORPWUXHUpTaleoj+92As0S9uPRP7Oi8IqMf0u+ro6A==}
     dev: true
 
-  /@hey-api/codegen-core@0.5.0(typescript@5.9.3):
-    resolution: {integrity: sha512-k4A41bH0bppzn5VgruQe36oc2ENr5MTXnonCXw/N8/608n9VuI9S3PyNMYYLO6FMSIvgaByN8GOaaqAtrShA6g==}
+  /@hey-api/codegen-core@0.5.1(typescript@5.9.3):
+    resolution: {integrity: sha512-k/WN7WWEcaOglKiSlc0WHxUFdaCpf9QLAQK5TzOq2oyljzGPn0RNkWtO2Lk3Of68kkWXINMdyhmBE3nW/9NCQQ==}
     engines: {node: '>=20.19.0'}
     peerDependencies:
       typescript: '>=5.5.3'
@@ -299,14 +299,14 @@ packages:
       lodash: 4.17.21
     dev: false
 
-  /@hey-api/openapi-ts@0.90.0(typescript@5.9.3):
-    resolution: {integrity: sha512-0Fujk+3q/tEZeXRLRs/Y/lTQ9b4m1MHBsW5uGAI+tbscVDwqlkFc23MBoDcbysWyuG/aF95F39nmHdAoTCtP0Q==}
+  /@hey-api/openapi-ts@0.90.1(typescript@5.9.3):
+    resolution: {integrity: sha512-wsURTl5k5J/JQR3gU8N7MOZYpsx/xnZHwixzXzs77hQGzibLXuGbTmBMJEu90r8zBcabzp9rt7kv1HMkmEb9cw==}
     engines: {node: '>=20.19.0'}
     hasBin: true
     peerDependencies:
       typescript: '>=5.5.3'
     dependencies:
-      '@hey-api/codegen-core': 0.5.0(typescript@5.9.3)
+      '@hey-api/codegen-core': 0.5.1(typescript@5.9.3)
       '@hey-api/json-schema-ref-parser': 1.2.2
       ansi-colors: 4.1.3
       c12: 3.3.3
@@ -1639,7 +1639,7 @@ packages:
       is-in-ssh: 1.0.0
       is-inside-container: 1.0.0
       powershell-utils: 0.1.0
-      wsl-utils: 0.3.0
+      wsl-utils: 0.3.1
     dev: false
 
   /opener@1.5.2:
@@ -2200,8 +2200,8 @@ packages:
       iconv-lite: 0.6.3
     dev: true
 
-  /wsl-utils@0.3.0:
-    resolution: {integrity: sha512-3sFIGLiaDP7rTO4xh3g+b3AzhYDIUGGywE/WsmqzJWDxus5aJXVnPTNC/6L+r2WzrwXqVOdD262OaO+cEyPMSQ==}
+  /wsl-utils@0.3.1:
+    resolution: {integrity: sha512-g/eziiSUNBSsdDJtCLB8bdYEUMj4jR7AGeUo96p/3dTafgjHhpF4RiCFPiRILwjQoDXx5MqkBr4fwWtR3Ky4Wg==}
     engines: {node: '>=20'}
     dependencies:
       is-wsl: 3.1.0
