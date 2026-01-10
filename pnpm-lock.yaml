@@ -18,10 +18,10 @@ dependencies:
 devDependencies:
   '@types/react':
     specifier: ^19.1.13
-    version: 19.2.7
+    version: 19.2.8
   '@types/react-dom':
     specifier: ^19.1.9
-    version: 19.2.3(@types/react@19.2.7)
+    version: 19.2.3(@types/react@19.2.8)
   esbuild:
     specifier: ^0.27.0
     version: 0.27.2
@@ -327,16 +327,16 @@ packages:
     resolution: {integrity: sha512-5+fP8P8MFNC+AyZCDxrB2pkZFPGzqQWUzpSeuuVLvm8VMcorNYavBqoFcxK8bQz4Qsbn4oUEEem4wDLfcysGHA==}
     dev: false
 
-  /@types/react-dom@19.2.3(@types/react@19.2.7):
+  /@types/react-dom@19.2.3(@types/react@19.2.8):
     resolution: {integrity: sha512-jp2L/eY6fn+KgVVQAOqYItbF0VY/YApe5Mz2F0aykSO8gx31bYCZyvSeYxCHKvzHG5eZjc+zyaS5BrBWya2+kQ==}
     peerDependencies:
       '@types/react': ^19.2.0
     dependencies:
-      '@types/react': 19.2.7
+      '@types/react': 19.2.8
     dev: true
 
-  /@types/react@19.2.7:
-    resolution: {integrity: sha512-MWtvHrGZLFttgeEj28VXHxpmwYbor/ATPYbBfSFZEIRK0ecCFLl2Qo55z52Hss+UV9CRN7trSeq1zbgx7YDWWg==}
+  /@types/react@19.2.8:
+    resolution: {integrity: sha512-3MbSL37jEchWZz2p2mjntRZtPt837ij10ApxKfgmXCTuHWagYg7iA5bqPw6C8BMPfwidlvfPI/fxOc42HLhcyg==}
     dependencies:
       csstype: 3.2.3
     dev: true
