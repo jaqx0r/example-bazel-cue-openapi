@@ -39,7 +39,7 @@ itest_service(
         "POSTGRES_PASSWORD": "postgres",
         "POSTGRES_DB": "postgres",
     },
-    exe = "//testing/itestcontainer:itestcontainer",
+    exe = "@com_github_jaqx0r_itestcontainer//:itestcontainer",
     named_ports = [
         "5432",
     ],
