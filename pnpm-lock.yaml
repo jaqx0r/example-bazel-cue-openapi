@@ -7,7 +7,7 @@ settings:
 dependencies:
   '@hey-api/openapi-ts':
     specifier: ^0.90.0
-    version: 0.90.7(typescript@5.9.3)
+    version: 0.90.8(typescript@5.9.3)
   react:
     specifier: ^19.1.1
     version: 19.2.3
@@ -278,8 +278,8 @@ packages:
     resolution: {integrity: sha512-J8TOSBq3SoZbDhM9+R/u77hP93gz/rajSA+K2kGyijPpORPWUXHUpTaleoj+92As0S9uPRP7Oi8IqMf0u+ro6A==}
     dev: true
 
-  /@hey-api/codegen-core@0.5.3(typescript@5.9.3):
-    resolution: {integrity: sha512-iAoZLRxDe36PDvU5UnlUlPd2jY3/uRzG0XHNYGyKCEaMC7jWj7DFtAd2mJYJLSpjNkJw5Rx9+eeRptEwnn1AJA==}
+  /@hey-api/codegen-core@0.5.4(typescript@5.9.3):
+    resolution: {integrity: sha512-vi4q2fquMdY6krHLE2ZEt3yqiyt2RAFOdoPhNkCWKjUYSE0xuGEdMNdHGrBr8O6bvya289OnkXaPu6OIAJ0iHQ==}
     engines: {node: '>=20.19.0'}
     peerDependencies:
       typescript: '>=5.5.3'
@@ -300,14 +300,14 @@ packages:
       lodash: 4.17.23
     dev: false
 
-  /@hey-api/openapi-ts@0.90.7(typescript@5.9.3):
-    resolution: {integrity: sha512-30N0cYtT9ldm/MOosnxg87qDr5BZAArMlYAEG0VRWG0wr8mqSzTKC1TjuS6pteVnmlgLVcVgB3vSUDJpqMqo1Q==}
+  /@hey-api/openapi-ts@0.90.8(typescript@5.9.3):
+    resolution: {integrity: sha512-w+Gz4Jh9WVGrD0lDhxXcHIwscJDXV/VV5a2Kj/O1J99JydqH8Jaq382ezcyznmM/WsdBYa6qGwlItGx/iMinBg==}
     engines: {node: '>=20.19.0'}
     hasBin: true
     peerDependencies:
       typescript: '>=5.5.3'
     dependencies:
-      '@hey-api/codegen-core': 0.5.3(typescript@5.9.3)
+      '@hey-api/codegen-core': 0.5.4(typescript@5.9.3)
       '@hey-api/json-schema-ref-parser': 1.2.2
       '@hey-api/types': 0.1.1
       ansi-colors: 4.1.3
