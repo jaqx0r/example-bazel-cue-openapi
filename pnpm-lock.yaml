@@ -7,7 +7,7 @@ settings:
 dependencies:
   '@hey-api/openapi-ts':
     specifier: ^0.90.0
-    version: 0.90.9(typescript@5.9.3)
+    version: 0.90.10(typescript@5.9.3)
   react:
     specifier: ^19.1.1
     version: 19.2.3
@@ -303,8 +303,8 @@ packages:
       lodash: 4.17.23
     dev: false
 
-  /@hey-api/openapi-ts@0.90.9(typescript@5.9.3):
-    resolution: {integrity: sha512-tEnsMvTLMsO8s+VAW/59XehUOP/flRGzwmOPTV8weSEWqDOpj6/txnZpwDBFmvhZfPOc5ZsV8lV3bJuG11DNYA==}
+  /@hey-api/openapi-ts@0.90.10(typescript@5.9.3):
+    resolution: {integrity: sha512-o0wlFxuLt1bcyIV/ZH8DQ1wrgODTnUYj/VfCHOOYgXUQlLp9Dm2PjihOz+WYrZLowhqUhSKeJRArOGzvLuOTsg==}
     engines: {node: '>=20.19.0'}
     hasBin: true
     peerDependencies:
