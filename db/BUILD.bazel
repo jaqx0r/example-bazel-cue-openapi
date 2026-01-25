@@ -33,6 +33,7 @@ itest_service(
         "--name",
         "pg_image:latest",
         "--env=POSTGRES_USER,POSTGRES_PASSWORD,POSTGRES_DB",
+        "--ports=$${@@//db:sut:db}:5432",
     ],
     env = {
         "POSTGRES_USER": "postgres",
@@ -41,7 +42,7 @@ itest_service(
     },
     exe = "@com_github_jaqx0r_itestcontainer//:itestcontainer",
     named_ports = [
-        "5432",
+        "db",
     ],
     deps = [":load_pg_image_task"],
 )
