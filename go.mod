@@ -47,7 +47,7 @@ require (
 	github.com/go-playground/validator/v10 v10.27.0 // indirect
 	github.com/goccy/go-json v0.10.2 // indirect
 	github.com/goccy/go-yaml v1.18.0 // indirect
-	github.com/jaqx0r/itestcontainer v0.0.0-20260112233127-ec4eb348d06d // indirect
+	github.com/jaqx0r/itestcontainer v0.0.0-20260206045542-cb2d28cd6d55 // indirect
 	github.com/json-iterator/go v1.1.12 // indirect
 	github.com/klauspost/compress v1.18.0 // indirect
 	github.com/klauspost/cpuid/v2 v2.3.0 // indirect
