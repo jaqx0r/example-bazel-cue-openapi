@@ -16,7 +16,7 @@ use_repo(go_deps, "com_github_gin_gonic_gin", "com_github_google_uuid", "com_git
 bazel_dep(name = "rules_oapi_codegen", version = "0.0", dev_dependency = True)
 git_override(
     module_name = "rules_oapi_codegen",
-    commit = "8062821dc81b74a83df654e4c9aaef2ae6301619",
+    commit = "722801ae0a9b111178fe8abcc09e06b0f69e11ea",
     remote = "https://github.com/jaqx0r/rules_oapi_codegen",
 )
 
