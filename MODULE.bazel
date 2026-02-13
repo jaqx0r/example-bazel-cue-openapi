@@ -53,7 +53,7 @@ pull = use_repo_rule("@rules_img//img:pull.bzl", "pull")
 
 pull(
     name = "postgresql",
-    digest = "sha256:cc700402716ba650f7066c203d5d2525ff9c57b1f676d041ed408130c0df58b8",
+    digest = "sha256:06f99695cdbfba50a9d19073e2c2af16b8995ee846d25119d992ad719818522b",
     registry = "index.docker.io",
     repository = "library/postgres",
     tag = "18.2-alpine3.22",
