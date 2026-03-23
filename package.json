@@ -14,7 +14,7 @@
 		"http-server": "^14.1.1",
 		"live-server": "^1.2.2",
 		"tsconfig-to-swcconfig": "^2.8.1",
-		"typescript": "^5.9.2"
+		"typescript": "^6.0.0"
 	},
 	"engines": {
 		"node": ">=20.19.4"
