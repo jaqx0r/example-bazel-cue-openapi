@@ -7,7 +7,7 @@ settings:
 dependencies:
   '@hey-api/openapi-ts':
     specifier: ^0.94.0
-    version: 0.94.4(typescript@6.0.2)
+    version: 0.94.5(typescript@6.0.2)
   react:
     specifier: ^19.1.1
     version: 19.2.4
@@ -299,16 +299,17 @@ packages:
       js-yaml: 4.1.1
     dev: false
 
-  /@hey-api/openapi-ts@0.94.4(typescript@6.0.2):
-    resolution: {integrity: sha512-943f7wlLAQ0KHVx8CeD3xYJzBsCRQYtr+lgMYrAdfV48j32loqsqiMAM4fsMxvSO7mkz0lqcJkIb+YZIXO8Ubg==}
+  /@hey-api/openapi-ts@0.94.5(typescript@6.0.2):
+    resolution: {integrity: sha512-fCR/kIexbDarnt/WGKvjJb4K30JaFzO2F/528kHpyWT7vopPS0JeqtRQMjJg+Gk09N/05nbv1OaFOQXcy0BiVQ==}
     engines: {node: '>=20.19.0'}
     hasBin: true
     peerDependencies:
-      typescript: '>=5.5.3 || 6.0.1-rc'
+      typescript: '>=5.5.3 || >=6.0.0 || 6.0.1-rc'
     dependencies:
       '@hey-api/codegen-core': 0.7.4
       '@hey-api/json-schema-ref-parser': 1.3.1
-      '@hey-api/shared': 0.2.5
+      '@hey-api/shared': 0.2.6
+      '@hey-api/spec-types': 0.1.0
       '@hey-api/types': 0.1.4
       ansi-colors: 4.1.3
       color-support: 1.1.3
@@ -319,12 +320,13 @@ packages:
       - magicast
     dev: false
 
-  /@hey-api/shared@0.2.5:
-    resolution: {integrity: sha512-NS57dHXxhwBtenPWAzljA0I493ZxzjcZZtr8KFr8SsLboofdjcAbVRFAfOQ0iv2JMhOe9oyiWEEc1QOJ/9WWaw==}
+  /@hey-api/shared@0.2.6:
+    resolution: {integrity: sha512-ZZrsWbazJcJO688tJVEBeei03B4miPI7OauW+qLMYP/9KL6NadmA5MjqsIIwgfvb0HKMAR7lt4AINKzv0Zwdgw==}
     engines: {node: '>=20.19.0'}
     dependencies:
       '@hey-api/codegen-core': 0.7.4
       '@hey-api/json-schema-ref-parser': 1.3.1
+      '@hey-api/spec-types': 0.1.0
       '@hey-api/types': 0.1.4
       ansi-colors: 4.1.3
       cross-spawn: 7.0.6
@@ -332,6 +334,12 @@ packages:
       semver: 7.7.3
     transitivePeerDependencies:
       - magicast
+    dev: false
+
+  /@hey-api/spec-types@0.1.0:
+    resolution: {integrity: sha512-StS4RrAO5pyJCBwe6uF9MAuPflkztriW+FPnVb7oEjzDYv1sxPwP+f7fL6u6D+UVrKpZ/9bPNx/xXVdkeWPU6A==}
+    dependencies:
+      '@hey-api/types': 0.1.4
     dev: false
 
   /@hey-api/types@0.1.4:
