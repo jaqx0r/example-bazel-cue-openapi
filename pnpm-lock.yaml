@@ -10,10 +10,10 @@ dependencies:
     version: 0.95.0(typescript@6.0.2)
   react:
     specifier: ^19.1.1
-    version: 19.2.4
+    version: 19.2.5
   react-dom:
     specifier: ^19.1.1
-    version: 19.2.4(react@19.2.4)
+    version: 19.2.5(react@19.2.5)
 
 devDependencies:
   '@types/react':
@@ -1793,17 +1793,17 @@ packages:
       destr: 2.0.5
     dev: false
 
-  /react-dom@19.2.4(react@19.2.4):
-    resolution: {integrity: sha512-AXJdLo8kgMbimY95O2aKQqsz2iWi9jMgKJhRBAxECE4IFxfcazB2LmzloIoibJI3C12IlY20+KFaLv+71bUJeQ==}
+  /react-dom@19.2.5(react@19.2.5):
+    resolution: {integrity: sha512-J5bAZz+DXMMwW/wV3xzKke59Af6CHY7G4uYLN1OvBcKEsWOs4pQExj86BBKamxl/Ik5bx9whOrvBlSDfWzgSag==}
     peerDependencies:
-      react: ^19.2.4
+      react: ^19.2.5
     dependencies:
-      react: 19.2.4
+      react: 19.2.5
       scheduler: 0.27.0
     dev: false
 
-  /react@19.2.4:
-    resolution: {integrity: sha512-9nfp2hYpCwOjAN+8TZFGhtWEwgvWHXqESH8qT89AT/lWklpLON22Lc8pEtnpsZz7VmawabSU0gCjnj8aC0euHQ==}
+  /react@19.2.5:
+    resolution: {integrity: sha512-llUJLzz1zTUBrskt2pwZgLq59AemifIftw4aB7JxOqf1HY2FDaGDxgwpAPVzHU1kdWabH7FauP4i1oEeer2WCA==}
     engines: {node: '>=0.10.0'}
     dev: false
 
