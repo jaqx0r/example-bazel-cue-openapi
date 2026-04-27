@@ -19,5 +19,8 @@
 	"engines": {
 		"node": ">=20.19.4"
 	},
-	"type": "module"
+	"type": "module",
+    "pnpm": {
+        "onlyBuiltDependencies": []
+    }
 }
