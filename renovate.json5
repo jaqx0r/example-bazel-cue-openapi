@@ -6,4 +6,5 @@
 	  ":automergeAll",
 	  ":automergePr",
   ],
+  "postUpdateOptions": ["gomodTidy"]
 }
