@@ -21,11 +21,11 @@ func (ApiService) ListThings(ctx context.Context, req ListThingsRequestObject) (
 	paramSig.Write([]byte(req.Params.Filter))
 	nonce := paramSig.Sum(nil)
 
-	offset, err := pagination.Decode(req.Params.PageToken, nonce)
+	offset, err := pagination.Decode[int](req.Params.PageToken, nonce)
 
 	log.Printf("query for offset: %d and limit %d", offset, req.Params.PageSize)
 
-	token, err := pagination.Encode(offset, req.Params.PageSize, nonce)
+	token, err := pagination.Encode(offset+req.Params.PageSize, nonce)
 	if err != nil {
 		return nil, err
 	}
