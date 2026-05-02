@@ -73,6 +73,24 @@ js_run_devserver(
 openapi_ts.openapi_ts(
     name = "gen_apiclient",
     srcs = ["//api"],
+    outs = [
+        "apiclient/client.gen.ts",
+        "apiclient/client/client.gen.ts",
+        "apiclient/client/index.ts",
+        "apiclient/client/types.gen.ts",
+        "apiclient/client/utils.gen.ts",
+        "apiclient/core/auth.gen.ts",
+        "apiclient/core/bodySerializer.gen.ts",
+        "apiclient/core/params.gen.ts",
+        "apiclient/core/pathSerializer.gen.ts",
+        "apiclient/core/queryKeySerializer.gen.ts",
+        "apiclient/core/serverSentEvents.gen.ts",
+        "apiclient/core/types.gen.ts",
+        "apiclient/core/utils.gen.ts",
+        "apiclient/index.ts",
+        "apiclient/sdk.gen.ts",
+        "apiclient/types.gen.ts",
+    ],
     args = [
         "--debug",
         "--input",
@@ -82,8 +100,8 @@ openapi_ts.openapi_ts(
         "--output",
         package_name() + "/apiclient",
     ],
+    #dirs = ["apiclient"],
     log_level = "debug",
-    out_dirs = ["apiclient"],
 )
 
 ts_project(
