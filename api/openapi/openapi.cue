@@ -22,6 +22,7 @@ package openapi
 	servers?: [...#server]
 	paths:       #paths
 	components?: #components
+	security?: [...#security_requirement]
 	tags?: [...#tag]
 	externalDocs?: #external_docs
 }
@@ -37,14 +38,15 @@ package openapi
 }
 
 #components: {
-	schemas?: [string]:       #schema | #reference
-	responses?: [string]:     #response | #reference
-	parameters?: [string]:    #parameter | #reference
-	examples?: [string]:      #example | #reference
-	requestBodies?: [string]: #request_body | #reference
-	headers?: [string]:       #header | #reference
-	links?: [string]:         #link | #reference
-	callbacks?: [string]:     #callback | #reference
+	schemas?: [string]:         #schema | #reference
+	responses?: [string]:       #response | #reference
+	parameters?: [string]:      #parameter | #reference
+	examples?: [string]:        #example | #reference
+	requestBodies?: [string]:   #request_body | #reference
+	headers?: [string]:         #header | #reference
+	links?: [string]:           #link | #reference
+	callbacks?: [string]:       #callback | #reference
+	securitySchemes?: [string]: #security_scheme
 }
 
 #paths: [string]: #path
@@ -75,6 +77,7 @@ package openapi
 	responses: [string]:  #response | #reference
 	callbacks?: [string]: #callback | #reference
 	deprecated?: bool
+	security?: [...#security_requirement]
 	servers?: [...#server]
 }
 
@@ -172,9 +175,11 @@ package openapi
 	title?:       string
 	description?: string
 	items?:       #schema | #reference
-	properties?: [string]: #schema
-	format?:   "int32" | "int64" | "float" | "double" | "byte" | "binary" | "date" | "date-time" | "password" | "uuid"
-	example?:  _
+	properties?: [string]: #schema | #reference
+	format?:  "int32" | "int64" | "float" | "double" | "byte" | "binary" | "date" | "date-time" | "password" | "uuid" | "uri"
+	pattern?: string
+	example?: _
+	enum?: [...string]
 	nullable?: bool
 	required?: [...string]
 	nullable?:     bool
@@ -184,4 +189,54 @@ package openapi
 	example?:      _
 	deprecated?:   bool
 	default?:      _
+}
+
+// Security requirement: maps scheme name to required scopes.
+// For oauth2 the value is a list of scope names.
+#security_requirement: [string]: [...string]
+
+#oauth_flows: {
+	implicit?: {
+		authorizationUrl: string
+		refreshUrl?:      string
+		scopes: [string]: string
+	}
+	password?: {
+		tokenUrl:    string
+		refreshUrl?: string
+		scopes: [string]: string
+	}
+	clientCredentials?: {
+		tokenUrl:    string
+		refreshUrl?: string
+		scopes: [string]: string
+	}
+	authorizationCode?: {
+		authorizationUrl: string
+		tokenUrl:         string
+		refreshUrl?:      string
+		scopes: [string]: string
+	}
+}
+
+// Security scheme definition (OpenAPI 3.0.3 §4.7.19).
+// Only oauth2 and http is defined; add other scheme types when needed.
+#security_scheme: {
+	type:         "oauth2"
+	description?: string
+	// At least one oauth flow must be defined.
+	flows: #oauth_flows & ({
+		implicit: _
+	} | {
+		password: _
+	} | {
+		clientCredentials: _
+	} | {
+		authorizationCode: _
+	})
+} | {
+	type:          "http"
+	description?:  string
+	scheme:        string
+	bearerFormat?: string
 }
