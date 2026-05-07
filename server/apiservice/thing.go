@@ -3,6 +3,7 @@ package apiservice
 import (
 	"context"
 	"crypto/sha256"
+	"fmt"
 	"log"
 
 	"github.com/google/uuid"
@@ -37,5 +38,5 @@ func (ApiService) ListThings(ctx context.Context, req ListThingsRequestObject) (
 }
 
 func (ApiService) GetThing(ctx context.Context, req GetThingRequestObject) (GetThingResponseObject, error) {
-	return UnimplementedResponse{}, nil
+	return nil, fmt.Errorf("Unimplemented")
 }
