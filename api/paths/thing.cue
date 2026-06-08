@@ -7,12 +7,6 @@ import "github.com/jaqx0r/example-bazel-cue-openapi/api/googleaip"
 	#maxPageSize: 1000
 }
 
-"/things/{thing_id}": googleaip.#Get & {
+"/things/{name}": googleaip.#Get & {
 	#resource: "#/components/schemas/Thing"
-	#fields: {
-		thing_id: {
-			behavior: "identifier"
-			type:     "string"
-		}
-	}
 }

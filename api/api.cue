@@ -2,7 +2,7 @@ import (
 	"github.com/jaqx0r/example-bazel-cue-openapi/api/openapi"
 	s "github.com/jaqx0r/example-bazel-cue-openapi/api/schemas"
 	p "github.com/jaqx0r/example-bazel-cue-openapi/api/paths"
-	"github.com/jaqx0r/example-bazel-cue-openapi/api:errors"
+	"github.com/jaqx0r/example-bazel-cue-openapi/api/shared:errors"
 )
 
 openapi.#openapi & {
@@ -14,8 +14,5 @@ openapi.#openapi & {
 			"""
 	}
 	paths: p
-	components: {
-		responses: errors
-		schemas:   s
-	}
+	components: schemas: s & errors
 }
