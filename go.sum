@@ -126,8 +126,8 @@ github.com/google/pprof v0.0.0-20240727154555-813a5fbdbec8/go.mod h1:K1liHPHnj73
 github.com/google/uuid v1.1.2/go.mod h1:TIyPZe4MgqvfeYDBFedMoGGpEw/LqOeaOT+nhxU+yHo=
 github.com/google/uuid v1.6.0 h1:NIvaJDMOsjHA8n1jAhLSgzrAzy1Hgr+hNrb57e+94F0=
 github.com/google/uuid v1.6.0/go.mod h1:TIyPZe4MgqvfeYDBFedMoGGpEw/LqOeaOT+nhxU+yHo=
-github.com/jaqx0r/itestcontainer v0.1.1 h1:tFbb0op6XNC/iwTgnVyFB3XjnafLCXp6awdA44WnDTQ=
-github.com/jaqx0r/itestcontainer v0.1.1/go.mod h1:c7PSlsKCpgXQ0jw3tNncl1UQDANKeypojOcxGrXrQ7A=
+github.com/jaqx0r/itestcontainer v0.1.2 h1:UWJNIzpu+bFw6MbzjqE1cRgLMGUTuSA9kjF0MDGzzNk=
+github.com/jaqx0r/itestcontainer v0.1.2/go.mod h1:X8MD2QxqZcU/PM6SP9+Ystw16SUh1DJiK/8n5PcobD4=
 github.com/jaqx0r/pagination v0.0.2 h1:/ylyk4Tts1HZuESjbpCl/uv9om0/wfh4wp5M8hSE6Nw=
 github.com/jaqx0r/pagination v0.0.2/go.mod h1:XbnJhWMTxgzqzqYKweAz43LR3NWo6KoxIMsRDeycSFM=
 github.com/json-iterator/go v1.1.12 h1:PV8peI4a0ysnczrg+LtxykD8LfKY9ML6u2jnxaEnrnM=
