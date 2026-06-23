@@ -1,4 +1,4 @@
-load("@rules_cue//cue:cue.bzl", "cue_consolidated_files", "cue_instance")
+load("@rules_cue//cue:cue.bzl", "cue_instance")
 load("//bzl:cue_test.bzl", "cue_test")
 
 cue_instance(
