@@ -1,0 +1,8 @@
+load("@rules_cue//cue:cue.bzl", "cue_instance")
+
+cue_instance(
+    name = "errors",
+    srcs = ["errors.cue"],
+    ancestor = "//api/cue.mod",
+    visibility = ["//api:__subpackages__"],
+)

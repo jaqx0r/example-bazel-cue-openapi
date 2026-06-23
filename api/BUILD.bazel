@@ -1,10 +1,4 @@
-load("@rules_cue//cue:cue.bzl", "cue_exported_files", "cue_instance")
-
-cue_instance(
-    name = "errors",
-    srcs = ["errors.cue"],
-    ancestor = "//api/cue.mod",
-)
+load("@rules_cue//cue:cue.bzl", "cue_exported_files")
 
 # Call `cue export` to emit a yaml from our sources.
 cue_exported_files(
@@ -14,9 +8,9 @@ cue_exported_files(
     output_format = "yaml",
     visibility = ["//visibility:public"],
     deps = [
-        ":errors",
         "//api/openapi",
         "//api/paths",
         "//api/schemas",
+        "//api/shared:errors",
     ],
 )
