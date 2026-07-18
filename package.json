@@ -2,7 +2,7 @@
 	"name": "example-bazel-cue-openapi",
 	"version": "0.0.0",
 	"private": true,
-	"packageManager": "pnpm@11.13.1",
+	"packageManager": "pnpm@11.14.0",
 	"dependencies": {
 		"@hey-api/openapi-ts": "^0.99.0",
 		"react": "^19.1.1",
