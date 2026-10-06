@@ -1,17 +1,25 @@
 load("@rules_go//go:def.bzl", "go_library")
-load("@rules_oapi_codegen//:defs.bzl", "oapi_codegen")
 
-oapi_codegen(
-    name = "generate",
+# load("@rules_oapi_codegen//:defs.bzl", "oapi_codegen")
+load("@rules_ogen_go//:ogen.bzl", "ogen_go")
+
+ogen_go(
+    name = "ogen",
     src = "//api",
-    out = "apiservice.go",
-    generate = "gin",
-    output_options = {
-        "prefer-skip-optional-pointer": "true",
-        "prefer-skip-optional-pointer-with-omitzero": "true",
-    },
     package = "apiservice",
 )
+
+# oapi_codegen(
+#     name = "generate",
+#     src = "//api",
+#     out = "apiservice.go",
+#     generate = "gin",
+#     output_options = {
+#         "prefer-skip-optional-pointer": "true",
+#         "prefer-skip-optional-pointer-with-omitzero": "true",
+#     },
+#     package = "apiservice",
+# )
 
 go_library(
     name = "apiservice",
