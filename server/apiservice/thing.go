@@ -10,33 +10,38 @@ import (
 	"github.com/jaqx0r/pagination"
 )
 
-func (ApiService) ListThings(ctx context.Context, req ListThingsRequestObject) (ListThingsResponseObject, error) {
+func (*Service) ListThings(ctx context.Context, req ListThingsParams) (*ListThingsOK, error) {
 	var things = []Thing{
 		{
-			Uid:   uuid.New(),
-			Title: "thing",
+			UID:   uuid.New(),
+			Title: NewOptString("thing"),
 		},
 	}
 
 	paramSig := sha256.New()
-	paramSig.Write([]byte(req.Params.Filter))
+	paramSig.Write([]byte(req.Filter.Or("")))
 	nonce := paramSig.Sum(nil)
 
-	offset, err := pagination.Decode[int](req.Params.PageToken, nonce)
+	offset, err := pagination.Decode[int](req.PageToken.Or(""), nonce)
 
-	log.Printf("query for offset: %d and limit %d", offset, req.Params.PageSize)
+	pageSize := req.PageSize.Or(0)
+	if pageSize <= 0 || pageSize > 1000 {
+		pageSize = 1000
+	}
 
-	token, err := pagination.Encode(offset+req.Params.PageSize, nonce)
+	log.Printf("query for offset: %d and limit %d", offset, pageSize)
+
+	token, err := pagination.Encode(pageSize, nonce)
 	if err != nil {
 		return nil, err
 	}
 
-	return ListThings200JSONResponse{
+	return &ListThingsOK{
 		Things:        things,
 		NextPageToken: token,
 	}, nil
 }
 
-func (ApiService) GetThing(ctx context.Context, req GetThingRequestObject) (GetThingResponseObject, error) {
+func (*Service) GetThing(ctx context.Context, req GetThingParams) (*Thing, error) {
 	return nil, fmt.Errorf("Unimplemented")
 }

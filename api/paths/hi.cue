@@ -17,6 +17,10 @@ import "github.com/jaqx0r/example-bazel-cue-openapi/api/openapi"
 
 				}
 			}
+			default: {
+				description: "Error"
+				content: "application/json": schema: $ref: "#/components/schemas/Error"
+			}
 		}
 	}
 }
