@@ -5,7 +5,6 @@ import (
 	"log"
 	"net/http"
 
-	"github.com/gin-gonic/gin"
 	"github.com/jaqx0r/example-bazel-cue-openapi/server/apiservice"
 )
 
@@ -14,16 +13,13 @@ var port = flag.String("port", "8080", "Default port to serve the API on")
 func main() {
 	flag.Parse()
 
-	s := apiservice.New()
-
-	r := gin.Default()
-
-	apiservice.RegisterHandlers(r, apiservice.NewStrictHandler(s, []apiservice.StrictMiddlewareFunc{}))
-
-	srv := &http.Server{
-		Handler: r,
-		Addr:    ":" + *port,
+	svc := apiservice.New()
+	srv, err := apiservice.NewServer(svc)
+	if err != nil {
+		log.Fatalf("NewServer(%v): %v", svc, err)
 	}
 
-	log.Fatal(srv.ListenAndServe())
+	if err := http.ListenAndServe(":"+*port, srv); err != nil {
+		log.Fatalf("ListenAndServe(): %v", err)
+	}
 }

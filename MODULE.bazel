@@ -61,3 +61,10 @@ pull(
     repository = "library/postgres",
     tag = "18.4-alpine3.22",
 )
+
+bazel_dep(name = "rules_ogen_go", version = "0.0.0")
+git_override(
+    module_name = "rules_ogen_go",
+    commit = "96e659daa478dd54ec617c405a3ef7650923e4b2",
+    remote = "https://github.com/jaqx0r/rules_ogen_go.git",
+)
