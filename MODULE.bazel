@@ -65,6 +65,6 @@ pull(
 bazel_dep(name = "rules_ogen_go", version = "0.0.0")
 git_override(
     module_name = "rules_ogen_go",
-    commit = "96e659daa478dd54ec617c405a3ef7650923e4b2",
+    commit = "9eab8eb1927d032d6beeaa1a51dd081d742f08f8",
     remote = "https://github.com/jaqx0r/rules_ogen_go.git",
 )
