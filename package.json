@@ -14,7 +14,7 @@
 		"esbuild": "^0.28.0",
 		"http-server": "^14.1.1",
 		"live-server": "^1.2.2",
-		"tsconfig-to-swcconfig": "^2.8.1",
+		"tsconfig-to-swcconfig": "^3.0.0",
 		"typescript": "^7.0.0"
 	},
 	"engines": {
